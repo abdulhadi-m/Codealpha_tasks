@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProjectFlow — Task</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar">
+  <div class="nav-logo">Project<span>Flow</span></div>
+  <div class="nav-right">
+    <span class="nav-user" id="nav-user"></span>
+    <button class="btn-nav" id="nav-logout" style="display:none;">Logout</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- back to project board -->
+  <div class="back-link" id="back-link" onclick="goBack()">
+    ← Back to Project
+  </div>
+
+  <!-- loading state -->
+  <div id="task-loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- task not found -->
+  <div id="task-error" style="display:none;">
+    <div class="empty-state">
+      <div class="icon">🔍</div>
+      <h3>Task not found</h3>
+      <p>This task doesn't exist or was deleted.</p>
+    </div>
+  </div>
+
+  <!-- main task content -->
+  <div id="task-content" style="display:none;">
+
+    <!-- task detail card -->
+    <div class="task-detail">
+      <div class="task-detail-header">
+        <div class="task-detail-title" id="task-title"></div>
+        <div>
+          <!-- status dropdown to update inline -->
+          <select class="status-select" id="status-select" onchange="updateStatus()">
+            <option value="todo">To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="task-detail-meta">
+        <span>👤 Assigned to: <strong id="task-assigned"></strong></span>
+        <span>✍️ Created by: <strong id="task-created-by"></strong></span>
+        <span>🕐 <span id="task-time"></span></span>
+      </div>
+
+      <div class="task-detail-desc" id="task-desc"></div>
+
+      <div class="task-actions" id="task-actions">
+        <!-- delete button only shows for task creator -->
+      </div>
+    </div>
+
+    <!-- comments section -->
+    <div class="comments-box">
+      <div class="comments-title">💬 Comments</div>
+
+      <!-- comments list -->
+      <div id="comments-list">
+        <div class="spinner" style="padding:1.5rem;"></div>
+      </div>
+
+      <!-- add comment input -->
+      <div class="comment-input-row" id="comment-input-area">
+        <input
+          type="text"
+          id="comment-input"
+          placeholder="Write a comment and press Enter..."
+          onkeydown="if(event.key==='Enter') submitComment()"
+        />
+        <button class="btn btn-primary btn-sm" onclick="submitComment()">
+          Send
+        </button>
+      </div>
+
+      <!-- shown if not logged in -->
+      <div id="login-to-comment" style="display:none;
+           font-size:0.85rem; color:var(--text-muted); margin-top:0.75rem;">
+        <a href="/auth.html" style="color:var(--primary); font-weight:600;">
+          Login
+        </a> to leave a comment.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/task.js"></script>
+</body>
+</html>

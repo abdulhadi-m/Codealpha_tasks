@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProjectFlow — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar">
+  <div class="nav-logo">Project<span>Flow</span></div>
+  <div class="nav-right">
+    <span class="nav-user" id="nav-user"></span>
+    <button class="btn-nav" id="nav-logout" style="display:none;">Logout</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <div class="page-title">My Projects</div>
+      <div class="page-subtitle">All the projects you own or are a member of</div>
+    </div>
+    <button class="btn btn-accent" onclick="openCreateModal()">
+      + New Project
+    </button>
+  </div>
+
+  <!-- projects show up here -->
+  <div id="projects-container">
+    <div class="spinner"></div>
+  </div>
+
+</div>
+
+<!-- create project modal -->
+<div class="modal-overlay" id="create-modal" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-title">Create New Project</div>
+
+    <div class="form-group">
+      <label>Project Name *</label>
+      <input type="text" id="project-name" placeholder="e.g. Website Redesign" />
+    </div>
+    <div class="form-group">
+      <label>Description (optional)</label>
+      <textarea id="project-desc" placeholder="What is this project about?"></textarea>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeCreateModal()">Cancel</button>
+      <button class="btn btn-accent" id="btn-create" onclick="createProject()">
+        Create Project
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

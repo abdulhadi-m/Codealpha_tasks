@@ -1,0 +1,146 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProjectFlow — Board</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar">
+  <div class="nav-logo">Project<span>Flow</span></div>
+  <div class="nav-right">
+    <span class="nav-user" id="nav-user"></span>
+    <button class="btn-nav" id="nav-logout" style="display:none;">Logout</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- back to dashboard -->
+  <div class="back-link" onclick="window.location.href='/dashboard.html'">
+    ← Back to Dashboard
+  </div>
+
+  <!-- project info header -->
+  <div class="page-header">
+    <div>
+      <div class="page-title" id="project-name">Loading...</div>
+      <div class="page-subtitle" id="project-desc"></div>
+    </div>
+    <button class="btn btn-accent" onclick="openTaskModal()">
+      + Add Task
+    </button>
+  </div>
+
+  <!-- members section -->
+  <div style="background:var(--surface); border:1.5px solid var(--border);
+              border-radius:var(--radius); padding:1rem 1.25rem;
+              margin-bottom:1.5rem; box-shadow:var(--shadow-sm);">
+    <div style="display:flex; justify-content:space-between;
+                align-items:center; flex-wrap:wrap; gap:0.5rem;">
+      <div>
+        <div style="font-size:0.8rem; font-weight:700;
+                    text-transform:uppercase; letter-spacing:0.4px;
+                    color:var(--text-muted); margin-bottom:0.4rem;">
+          Team Members
+        </div>
+        <div class="members-list" id="members-list"></div>
+      </div>
+      <!-- add member input, only visible to owner -->
+      <div id="add-member-section" style="display:none;">
+        <div style="display:flex; gap:0.5rem; align-items:center;">
+          <input
+            type="text"
+            id="member-username"
+            placeholder="Username to add"
+            style="padding:0.45rem 0.8rem; border:1.5px solid var(--border);
+                   border-radius:var(--radius-sm); font-size:0.85rem;
+                   outline:none; font-family:inherit;"
+            onkeydown="if(event.key==='Enter') addMember()"
+          />
+          <button class="btn btn-sm btn-primary" onclick="addMember()">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- kanban board - 3 columns -->
+  <div class="board">
+
+    <!-- todo column -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">To Do</div>
+        <span class="column-count" id="count-todo">0</span>
+      </div>
+      <div id="col-todo"></div>
+    </div>
+
+    <!-- in progress column -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">In Progress</div>
+        <span class="column-count" id="count-in-progress">0</span>
+      </div>
+      <div id="col-in-progress"></div>
+    </div>
+
+    <!-- done column -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">Done</div>
+        <span class="column-count" id="count-done">0</span>
+      </div>
+      <div id="col-done"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- create task modal -->
+<div class="modal-overlay" id="task-modal" onclick="handleTaskOverlay(event)">
+  <div class="modal">
+    <div class="modal-title">Add New Task</div>
+
+    <div class="form-group">
+      <label>Task Title *</label>
+      <input type="text" id="task-title" placeholder="e.g. Design the homepage" />
+    </div>
+    <div class="form-group">
+      <label>Description (optional)</label>
+      <textarea id="task-desc" placeholder="What needs to be done?"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Assign To</label>
+      <select id="task-assignee">
+        <option value="">Unassigned</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <select id="task-status">
+        <option value="todo">To Do</option>
+        <option value="in-progress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeTaskModal()">Cancel</button>
+      <button class="btn btn-accent" id="btn-add-task" onclick="createTask()">
+        Add Task
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/project.js"></script>
+</body>
+</html>

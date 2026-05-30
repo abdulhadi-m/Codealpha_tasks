@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1780145604775",
+    "name": "Full",
+    "description": "Stack",
+    "ownerId": "1780145596162",
+    "ownerName": "Karl",
+    "members": [
+      "1780145596162",
+      "1780145346762"
+    ],
+    "memberNames": [
+      "Karl",
+      "John"
+    ],
+    "createdAt": "2026-05-30T12:53:24.775Z"
+  }
+]
