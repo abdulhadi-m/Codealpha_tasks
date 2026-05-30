@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SocialSpark — Profile</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Social<span>Spark</span></a>
+    <div class="nav-links">
+      <a href="/index.html">Feed</a>
+      <a href="#" id="nav-profile" class="active">Profile</a>
+      <a href="/auth.html" id="nav-auth">Login</a>
+      <img
+        src=""
+        alt="avatar"
+        class="nav-avatar"
+        id="nav-avatar"
+        onclick="window.location.href='/profile.html?id=' + getUser()?.id"
+        style="display:none;"
+      />
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <!-- loading state -->
+  <div id="profile-loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- profile not found -->
+  <div id="profile-error" style="display:none;">
+    <div class="empty-state">
+      <div class="icon">🔍</div>
+      <h3>User not found</h3>
+      <p>This profile doesn't exist.</p>
+      <a href="/index.html">
+        <button class="btn-post" style="margin-top:1rem; border-radius:var(--radius-sm);">
+          Back to Feed
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- profile content -->
+  <div id="profile-content" style="display:none;">
+
+    <!-- profile card -->
+    <div class="profile-card">
+      <img src="" alt="avatar" class="profile-avatar-lg" id="profile-avatar" />
+      <div class="profile-username" id="profile-username"></div>
+      <div class="profile-bio"     id="profile-bio"></div>
+
+      <div class="profile-stats">
+        <div class="stat">
+          <div class="stat-number" id="stat-posts">0</div>
+          <div class="stat-label">Posts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="stat-followers">0</div>
+          <div class="stat-label">Followers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="stat-following">0</div>
+          <div class="stat-label">Following</div>
+        </div>
+      </div>
+
+      <!-- buttons: shown depending on own/other profile -->
+      <div id="profile-actions">
+
+        <!-- other user's profile -->
+        <button class="btn-follow" id="btn-follow" onclick="toggleFollow()"
+                style="display:none;">
+          Follow
+        </button>
+
+        <!-- own profile -->
+        <button class="btn-edit-bio" id="btn-edit-bio" onclick="toggleBioEdit()"
+                style="display:none;">
+          Edit Bio
+        </button>
+
+      </div>
+
+      <!-- bio edit box (own profile only) -->
+      <div class="bio-edit-box" id="bio-edit-box">
+        <textarea
+          id="bio-input"
+          rows="3"
+          maxlength="200"
+          placeholder="Write something about yourself…"
+        ></textarea>
+        <br/>
+        <button class="btn-save-bio" onclick="saveBio()">Save Bio</button>
+      </div>
+
+    </div>
+
+    <!-- user posts -->
+    <div class="profile-posts-title">Posts</div>
+    <div id="profile-posts">
+      <div class="spinner"></div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/feed.js"></script>
+<script src="js/comments.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

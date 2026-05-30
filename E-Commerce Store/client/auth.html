@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register — ShopSwift</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <!-- Logo -->
+    <div class="auth-logo">Shop<span>Swift</span></div>
+    <p class="auth-subtitle">Your one-stop online store</p>
+
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login"    onclick="switchTab('login')">Login</button>
+      <button class="auth-tab"        id="tab-register" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- Error banner -->
+    <div class="auth-error" id="auth-error"></div>
+
+    <!-- ── LOGIN FORM ── -->
+    <div id="form-login">
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password"/>
+      </div>
+      <button class="btn-auth" id="btn-login" onclick="handleLogin()">
+        Login
+      </button>
+      <p style="text-align:center; margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">
+        Don't have an account?
+        <a href="#" onclick="switchTab('register')" style="color:var(--primary); font-weight:600;">Register</a>
+      </p>
+    </div>
+
+    <!-- ── REGISTER FORM ── -->
+    <div id="form-register" style="display:none;">
+      <div class="form-group">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name" placeholder="John Doe" autocomplete="name"/>
+      </div>
+      <div class="form-group">
+        <label for="reg-email">Email Address</label>
+        <input type="email" id="reg-email" placeholder="you@example.com" autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" placeholder="Min. 6 characters" autocomplete="new-password"/>
+      </div>
+      <div class="form-group">
+        <label for="reg-confirm">Confirm Password</label>
+        <input type="password" id="reg-confirm" placeholder="Repeat password" autocomplete="new-password"/>
+      </div>
+      <button class="btn-auth" id="btn-register" onclick="handleRegister()">
+        Create Account
+      </button>
+      <p style="text-align:center; margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">
+        Already have an account?
+        <a href="#" onclick="switchTab('login')" style="color:var(--primary); font-weight:600;">Login</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

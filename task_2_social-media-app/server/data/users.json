@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1780123892929",
+    "username": "cooluser123",
+    "email": "you@",
+    "password": "$2b$10$sCpF4ftdnTNoZGTuBafHBuZrNqgVwEieV8dvc5GTp5c7b5eRr72xq",
+    "bio": "Cool",
+    "avatar": "https://api.dicebear.com/7.x/thumbs/svg?seed=cooluser123",
+    "createdAt": "2026-05-30T06:51:32.929Z"
+  },
+  {
+    "id": "1780123945093",
+    "username": "cooluser321",
+    "email": "f",
+    "password": "$2b$10$xH14yKwL5dGx6PnTPpGuHeIwnsEIx78Zb3eIjTnpu4P1aXChgrzuK",
+    "bio": "",
+    "avatar": "https://api.dicebear.com/7.x/thumbs/svg?seed=cooluser321",
+    "createdAt": "2026-05-30T06:52:25.093Z"
+  }
+]

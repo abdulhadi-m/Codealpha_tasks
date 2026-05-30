@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SocialSpark — Feed</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Social<span>Spark</span></a>
+    <div class="nav-links">
+      <a href="/index.html" class="active">Feed</a>
+      <a href="/profile.html" id="nav-profile">Profile</a>
+      <a href="/auth.html" id="nav-auth">Login</a>
+      <img
+        src=""
+        alt="avatar"
+        class="nav-avatar"
+        id="nav-avatar"
+        onclick="goToMyProfile()"
+        style="display:none;"
+      />
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <!-- create post box (only visible when logged in) -->
+  <div class="create-post" id="create-post-box" style="display:none;">
+    <div class="create-post-top">
+      <img src="" alt="you" id="create-avatar" />
+      <textarea
+        class="post-textarea"
+        id="post-input"
+        placeholder="What's on your mind?"
+        oninput="handleCharCount()"
+        maxlength="520"
+      ></textarea>
+    </div>
+    <div class="create-post-bottom">
+      <span class="char-count" id="char-count">0 / 500</span>
+      <button class="btn-post" id="btn-post" onclick="createPost()">Post</button>
+    </div>
+  </div>
+
+  <!-- login nudge for guests -->
+  <div id="guest-nudge" style="display:none;">
+    <div class="empty-state">
+      <div class="icon">👋</div>
+      <h3>Join SocialSpark</h3>
+      <p style="margin-bottom:1rem;">Login or register to post and interact.</p>
+      <a href="/auth.html">
+        <button class="btn-post" style="border-radius:var(--radius-sm); padding:0.6rem 1.5rem;">
+          Get Started
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- feed -->
+  <div id="feed">
+    <div class="spinner"></div>
+  </div>
+
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/feed.js"></script>
+<script src="js/comments.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopSwift — My Orders</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Shop<span>Swift</span></a>
+    <div class="nav-links">
+      <span id="user-greet" style="font-size:0.85rem; color:var(--text-muted);"></span>
+      <a href="/index.html">Products</a>
+      <a href="/orders.html" class="active">My Orders</a>
+      <a href="/auth.html" id="auth-link">Login</a>
+      <a href="/cart.html" class="nav-cart">
+        🛒 Cart
+        <span class="cart-badge" id="cart-badge"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MAIN ── -->
+<main class="container">
+
+  <!-- Not logged in -->
+  <div class="empty-state" id="not-logged-in" style="display:none;">
+    <div class="icon">🔒</div>
+    <h3>Please log in to view your orders</h3>
+    <p>You need an account to see your order history.</p>
+    <a href="/auth.html">
+      <button class="btn-primary" style="margin-top:1rem; max-width:200px;">
+        Login / Register
+      </button>
+    </a>
+  </div>
+
+  <!-- Logged in view -->
+  <div id="orders-section" style="display:none;">
+    <h1 class="page-title">My Orders</h1>
+    <p class="page-subtitle" id="orders-subtitle">Loading your orders…</p>
+
+    <!-- Loading -->
+    <div class="spinner" id="orders-spinner"></div>
+
+    <!-- Empty -->
+    <div class="empty-state" id="orders-empty" style="display:none;">
+      <div class="icon">📦</div>
+      <h3>No orders yet</h3>
+      <p>You haven't placed any orders. Start shopping!</p>
+      <a href="/index.html">
+        <button class="btn-primary" style="margin-top:1rem; max-width:200px;">
+          Browse Products
+        </button>
+      </a>
+    </div>
+
+    <!-- Orders list -->
+    <div id="orders-list" style="display:none; flex-direction:column; gap:1.25rem;"></div>
+  </div>
+
+</main>
+
+<!-- ── ORDER DETAIL MODAL ── -->
+<div class="modal-overlay" id="order-modal-overlay" onclick="closeOrderModal(event)">
+  <div class="modal" id="order-modal">
+    <div class="modal-body">
+
+      <div class="modal-header">
+        <div>
+          <div class="product-category">Order Details</div>
+          <h2 id="omd-id" style="font-size:1.1rem; font-weight:700; margin-top:0.25rem;"></h2>
+        </div>
+        <button class="modal-close" onclick="closeOrderModalDirect()">✕</button>
+      </div>
+
+      <!-- Meta row -->
+      <div class="modal-meta" style="margin-bottom:1rem;">
+        <span>📅 <span id="omd-date"></span></span>
+        <span>💳 <span id="omd-total"></span></span>
+        <span id="omd-status-wrap">🚦 <span id="omd-status"></span></span>
+      </div>
+
+      <!-- Items list -->
+      <div id="omd-items"
+           style="display:flex; flex-direction:column; gap:0.75rem;
+                  max-height:340px; overflow-y:auto; margin-bottom:1rem;">
+      </div>
+
+      <!-- Totals -->
+      <div style="border-top:1px solid var(--border); padding-top:1rem;">
+        <div class="summary-row">
+          <span>Items Total</span>
+          <span id="omd-subtotal"></span>
+        </div>
+        <div class="summary-row total" style="margin-top:0.5rem;">
+          <span>Order Total</span>
+          <span id="omd-grand"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/orders.js"></script>
+</body>
+</html>

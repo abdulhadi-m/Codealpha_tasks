@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "Wireless Noise-Cancelling Headphones",
+    "price": 99.99,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+    "description": "Premium over-ear headphones with active noise cancellation, 30-hour battery life, and superior sound quality.",
+    "stock": 15,
+    "rating": 4.5
+  },
+  {
+    "id": "2",
+    "name": "Running Shoes Pro",
+    "price": 79.99,
+    "category": "Footwear",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+    "description": "Lightweight and breathable running shoes with advanced cushioning technology for maximum comfort.",
+    "stock": 30,
+    "rating": 4.2
+  },
+  {
+    "id": "3",
+    "name": "Minimalist Leather Watch",
+    "price": 149.99,
+    "category": "Accessories",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+    "description": "Elegant slim-profile watch with genuine leather strap and sapphire crystal glass.",
+    "stock": 10,
+    "rating": 4.8
+  },
+  {
+    "id": "4",
+    "name": "Mechanical Keyboard TKL",
+    "price": 123.95,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
+    "description": "Tenkeyless mechanical keyboard with RGB backlighting and tactile brown switches.",
+    "stock": 20,
+    "rating": 4.6
+  },
+  {
+    "id": "5",
+    "name": "Yoga Mat Premium",
+    "price": 45.87,
+    "category": "Fitness",
+    "image": "https://images.unsplash.com/photo-1601925228008-a6d2de6f2d23?w=400",
+    "description": "Non-slip 6mm thick yoga mat with alignment lines, carry strap included.",
+    "stock": 50,
+    "rating": 4.3
+  },
+  {
+    "id": "6",
+    "name": "Stainless Steel Water Bottle",
+    "price": 31.67,
+    "category": "Lifestyle",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+    "description": "Double-wall insulated 1L bottle, keeps drinks cold 24hrs or hot 12hrs.",
+    "stock": 40,
+    "rating": 4.4
+  },
+  {
+    "id": "7",
+    "name": "Portable Bluetooth Speaker",
+    "price": 52.94,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400",
+    "description": "360° surround sound, IPX7 waterproof, 12-hour playtime. Perfect for outdoors.",
+    "stock": 25,
+    "rating": 4.1
+  },
+  {
+    "id": "8",
+    "name": "Ceramic Coffee Mug Set",
+    "price": 23.99,
+    "category": "Lifestyle",
+    "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400",
+    "description": "Set of 4 handcrafted ceramic mugs, microwave and dishwasher safe, 350ml each.",
+    "stock": 35,
+    "rating": 4.0
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1780123961764",
+    "userId": "1780123945093",
+    "username": "cooluser321",
+    "content": "this is social spark!",
+    "likes": [
+      "1780123945093"
+    ],
+    "image": "",
+    "createdAt": "2026-05-30T06:52:41.764Z"
+  },
+  {
+    "id": "1780123899693",
+    "userId": "1780123892929",
+    "username": "cooluser123",
+    "content": "Helloa",
+    "likes": [
+      "1780123892929",
+      "1780123945093"
+    ],
+    "image": "",
+    "createdAt": "2026-05-30T06:51:39.693Z"
+  }
+]

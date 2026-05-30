@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopSwift — Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Shop<span>Swift</span></a>
+    <div class="nav-links">
+      <span id="user-greet" style="font-size:0.85rem; color:var(--text-muted);"></span>
+      <a href="/index.html" class="active">Products</a>
+      <a href="/orders.html">My Orders</a>
+      <a href="/auth.html" id="auth-link">Login</a>
+      <a href="/cart.html" class="nav-cart">
+        🛒 Cart
+        <span class="cart-badge" id="cart-badge"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <h1>Welcome to ShopSwift ⚡</h1>
+  <p>Discover amazing products at unbeatable prices, delivered fast.</p>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<main class="container">
+
+  <!-- Filters -->
+  <div class="filters">
+    <input
+      type="text"
+      class="search-input"
+      id="search-input"
+      placeholder="🔍 Search products…"
+      oninput="handleSearch()"
+    />
+    <select class="filter-select" id="category-filter" onchange="handleFilter()">
+      <option value="All">All Categories</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Footwear">Footwear</option>
+      <option value="Accessories">Accessories</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Lifestyle">Lifestyle</option>
+    </select>
+    <select class="filter-select" id="sort-filter" onchange="handleFilter()">
+      <option value="">Sort By</option>
+      <option value="price-asc">Price: Low → High</option>
+      <option value="price-desc">Price: High → Low</option>
+      <option value="rating">Top Rated</option>
+    </select>
+  </div>
+
+  <!-- Product Grid -->
+  <div id="product-grid" class="product-grid">
+    <div class="spinner"></div>
+  </div>
+
+</main>
+
+<!-- ── PRODUCT DETAIL MODAL ── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="product-modal">
+
+    <img src="" alt="" class="modal-img" id="modal-img" />
+
+    <div class="modal-body">
+      <div class="modal-header">
+        <div>
+          <div class="product-category" id="modal-category"></div>
+          <h2 id="modal-name" style="font-size:1.3rem; font-weight:700; margin-top:0.25rem;"></h2>
+        </div>
+        <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      </div>
+
+      <div class="modal-price" id="modal-price"></div>
+
+      <div class="modal-meta">
+        <span>⭐ <span id="modal-rating"></span> rating</span>
+        <span>📦 <span id="modal-stock"></span> in stock</span>
+        <span>🏷️ <span id="modal-category-tag"></span></span>
+      </div>
+
+      <p class="modal-desc" id="modal-desc"></p>
+
+      <!-- Quantity control -->
+      <div class="qty-control">
+        <span style="font-weight:600; font-size:0.9rem;">Quantity:</span>
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <span class="qty-display" id="modal-qty">1</span>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <button class="btn-primary" id="modal-add-btn" onclick="addToCartFromModal()">
+        🛒 Add to Cart
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>
